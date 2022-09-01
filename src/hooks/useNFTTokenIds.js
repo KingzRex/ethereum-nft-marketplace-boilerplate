@@ -19,7 +19,7 @@ export const useNFTTokenIds = (addr) => {
   } = useMoralisWeb3ApiCall(token.getAllTokenIds, {
     chain: chainId,
     address: addr,
-    limit: 10,
+    limit: 40,
   });
 
   useEffect(async () => {
@@ -40,8 +40,8 @@ export const useNFTTokenIds = (addr) => {
               });
           } catch (error) {
             setFetchSuccess(false);
-              
-/*          !!Temporary work around to avoid CORS issues when retrieving NFT images!!
+
+            /*          !!Temporary work around to avoid CORS issues when retrieving NFT images!!
             Create a proxy server as per https://dev.to/terieyenike/how-to-create-a-proxy-server-on-heroku-5b5c
             Replace <your url here> with your proxy server_url below
             Remove comments :)

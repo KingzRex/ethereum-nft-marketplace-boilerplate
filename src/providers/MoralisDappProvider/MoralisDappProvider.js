@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
 import MoralisDappContext from "./context";
+import ABI from "./contract-abi.json";
 
 function MoralisDappProvider({ children }) {
   const { web3, Moralis, user } = useMoralis();
   const [walletAddress, setWalletAddress] = useState();
-  const [chainId, setChainId] = useState();       
-  const [contractABI, setContractABI] = useState('{"noContractDeployed": true}'); //Smart Contract ABI here
-  const [marketAddress, setMarketAddress] = useState(); //Smart Contract Address Here
+  const [chainId, setChainId] = useState(97);       
+  const [contractABI, setContractABI] = useState(JSON.stringify(ABI)); //Smart Contract ABI here
+  const [marketAddress, setMarketAddress] = useState("0x36667c9460569c767E32a14229e262B89f2b7D94"); //Smart Contract Address Here
 
 
   useEffect(() => {
